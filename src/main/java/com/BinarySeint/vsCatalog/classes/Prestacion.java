@@ -23,7 +23,7 @@ public class Prestacion {
 
     public Prestacion(){}
 
-    public void Prestacion(Long id,String nombre,Double precio,String descripcion){
+    public Prestacion(Long id,String nombre,Double precio,String descripcion){
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;

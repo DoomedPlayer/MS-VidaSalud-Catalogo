@@ -18,7 +18,7 @@ public class Box {
 
     public Box() {}
 
-    public void Box(Long id, String codigo,String centroAtencion){
+    public Box(Long id, String codigo,String centroAtencion){
         this.id = id;
         this.codigo = codigo;
         this.centroAtencion=centroAtencion;

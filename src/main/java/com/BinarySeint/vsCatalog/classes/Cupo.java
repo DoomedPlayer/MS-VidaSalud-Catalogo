@@ -25,7 +25,7 @@ public class Cupo {
     private Boolean disponible = true; 
 
     public Cupo() {}
-    public void Cupo(Long id,Box box, LocalDateTime fechaIncio,LocalDateTime fechaFin,Boolean disponible){
+    public Cupo(Long id,Box box, LocalDateTime fechaIncio,LocalDateTime fechaFin,Boolean disponible){
         this.id=id;
         this.box =box;
         this.fechaHoraInicio=fechaIncio;
