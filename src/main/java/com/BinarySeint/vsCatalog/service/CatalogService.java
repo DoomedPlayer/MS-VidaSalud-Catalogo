@@ -3,8 +3,10 @@ package com.BinarySeint.vsCatalog.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.BinarySeint.vsCatalog.classes.Box;
 import com.BinarySeint.vsCatalog.classes.Cupo;
 import com.BinarySeint.vsCatalog.classes.Prestacion;
+import com.BinarySeint.vsCatalog.repository.BoxRepository;
 import com.BinarySeint.vsCatalog.repository.CupoRepository;
 import com.BinarySeint.vsCatalog.repository.PrestacionRepository;
 
@@ -15,10 +17,14 @@ public class CatalogService {
 
     private final PrestacionRepository prestacionRepository;
     private final CupoRepository cupoRepository;
+    private final BoxRepository boxRepository;
 
-    public CatalogService(PrestacionRepository prestacionRepository, CupoRepository cupoRepository) {
+    public CatalogService(PrestacionRepository prestacionRepository, 
+                          CupoRepository cupoRepository, 
+                          BoxRepository boxRepository) {
         this.prestacionRepository = prestacionRepository;
         this.cupoRepository = cupoRepository;
+        this.boxRepository = boxRepository;
     }
 
     public List<Prestacion> obtenerTodasLasPrestaciones() {
@@ -38,6 +44,19 @@ public class CatalogService {
         return prestacionRepository.save(prestacion);
     }
 
+    public List<Cupo> obtenerCupos(Boolean disponible) {
+        if (disponible != null) {
+            return cupoRepository.findByDisponible(disponible);
+        }
+        return cupoRepository.findAll();
+    }
+
+    @Transactional
+    public Cupo crearCupo(Cupo cupo) {
+        cupo.setDisponible(true);
+        return cupoRepository.save(cupo);
+    }
+
     @Transactional
     public Cupo consumirCupo(Long cupoId) {
         Cupo cupo = cupoRepository.findById(cupoId)
@@ -49,5 +68,14 @@ public class CatalogService {
         
         cupo.setDisponible(false); 
         return cupoRepository.save(cupo);
+    }
+
+    public List<Box> obtenerTodosLosBoxes() {
+        return boxRepository.findAll();
+    }
+
+    @Transactional
+    public Box crearBox(Box box) {
+        return boxRepository.save(box);
     }
 }

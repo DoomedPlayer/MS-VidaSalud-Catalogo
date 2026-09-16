@@ -9,5 +9,5 @@ import com.BinarySeint.vsCatalog.classes.Cupo;
 
 @Repository
 public interface CupoRepository extends JpaRepository<Cupo, Long> {
-    List<Cupo> findByBoxIdAndDisponibleTrue(Long boxId);
+    List<Cupo> findByDisponible(Boolean disponible);
 }
