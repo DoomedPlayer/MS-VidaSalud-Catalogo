@@ -32,6 +32,13 @@ public class Cupo {
         this.fechaHoraFin=fechaFin;
         this.disponible=disponible;
     }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Box getBox(){
         return box;
