@@ -1,18 +1,18 @@
-INSERT IGNORE INTO box (id, codigo, centro_atencion) VALUES
+INSERT IGNORE INTO boxes (id, codigo, centro_atencion) VALUES
 (1, 'BOX-101', 'Centro Principal'),
 (2, 'BOX-102', 'Centro Principal'),
 (3, 'BOX-201', 'Centro Norte'),
 (4, 'BOX-202', 'Centro Norte'),
 (5, 'BOX-301', 'Centro Sur');
 
-INSERT IGNORE INTO prestacion (id, nombre, precio, descripcion) VALUES
+INSERT IGNORE INTO prestaciones (id, nombre, precio, descripcion) VALUES
 (1, 'Medicina General', 15000.00, 'Consulta general de morbilidad'),
 (2, 'Pediatría', 20000.00, 'Atención médica infantil'),
 (3, 'Cardiología', 35000.00, 'Evaluación cardiovascular especializada'),
 (4, 'Traumatología', 30000.00, 'Evaluación musculoesquelética'),
 (5, 'Oftalmología', 28000.00, 'Examen visual integral');
 
-INSERT IGNORE INTO cupo (id, box_id, fecha_hora_inicio, fecha_hora_fin, disponible) VALUES
+INSERT IGNORE INTO cupos (id, box_id, fecha_hora_inicio, fecha_hora_fin, disponible) VALUES
 (1,  1, '2026-09-18 08:30:00', '2026-09-18 09:00:00', 0),
 (2,  1, '2026-09-18 09:00:00', '2026-09-18 09:30:00', 0),
 (3,  2, '2026-09-18 09:30:00', '2026-09-18 10:00:00', 0),
